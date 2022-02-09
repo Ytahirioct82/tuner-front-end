@@ -7,7 +7,7 @@ function Home() {
   console.log(URL);
 
   const [songs, setSongs] = useState([]);
-  console.log(songs);
+
   useEffect(() => {
     axios
       .get(`${URL}/songs`)
@@ -23,18 +23,26 @@ function Home() {
   const result = songs.map((song, i) => {
     let fav = song.is_favorite ? "⭐️" : null;
     return (
-      <tr>
+      <tr key={i}>
         <td>{fav}</td> <td>{song.artist}</td> <td>{song.album}</td> <td>{song.name}</td> <td>{song.time}</td>
+        <td>
+          <Link to={`/edit/${song.id}`}>✏️</Link>
+        </td>
       </tr>
     );
   });
 
   return (
-    <div>
-      <Link to="/edit">
-        <Button>{result}</Button>
-      </Link>
-    </div>
+    <tbody>
+      <tr>
+        <th>Fav</th>
+        <th>Artist </th>
+        <th>Album</th>
+        <th>Song</th>
+        <th>Release</th>
+      </tr>
+      {result}
+    </tbody>
   );
 }
 export default Home;
