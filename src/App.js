@@ -5,6 +5,7 @@ import Home from "./Components/Home";
 import Nav from "./Components/Nav";
 import NewSong from "./Components/NewSong";
 import EditSong from "./Components/EditSong";
+import Song from "./Components/Song";
 
 <link
   rel="stylesheet"
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/new" element={<NewSong />} />
         <Route path="/edit/:id" element={<EditSong />} />
+        <Route path="/song/:id" element={<Song />} />
       </Routes>
     </div>
   );

@@ -12,6 +12,7 @@ function NewSong() {
       album: "",
       time: "",
       is_favorite: false,
+      lyrics: "",
     },
   ]);
 
@@ -73,8 +74,15 @@ function NewSong() {
         <input id="is_favorite" type="checkbox" onChange={handleCheckboxChange} checked={song.is_favorite} />
         <br />
         <br />
+        <label className="label" htmlFor="album">
+          Lyrics
+        </label>
+        <br />
+        <textarea type="text" value={song.lyrics} name="lyrics" placeholder="lyrics" onChange={HandleChange} />
+        <br />
+        <br />
 
-        <button type="submit">CREAT SONG</button>
+        <button type="submit">CREATE SONG</button>
       </form>
     </div>
   );

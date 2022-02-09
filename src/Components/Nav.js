@@ -8,7 +8,6 @@ function Nav() {
       <Container>
         <Row>
           <Col>
-            {" "}
             <Link to="/">
               <Button>Home</Button>
             </Link>

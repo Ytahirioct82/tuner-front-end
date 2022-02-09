@@ -13,6 +13,7 @@ function EditSong() {
       album: "",
       time: "",
       is_favorite: "",
+      lyrics: "",
     },
   ]);
 
@@ -29,6 +30,7 @@ function EditSong() {
   }, [URL]);
 
   const HandleChange = (event) => {
+    console.log(song.lyrics);
     setSong({ ...song, [event.target.name]: event.target.value });
   };
 
@@ -39,12 +41,14 @@ function EditSong() {
   const HandleSubmit = (event) => {
     event.preventDefault();
 
-    Object.keys(song).length >= 5 &&
+    Object.keys(song).length >= 6 &&
       axios
         .put(`${URL}/songs/${id}`, song)
         .then(() => navigate(`/`))
         .catch((error) => console.log("catch", error));
   };
+
+  console.log(song);
 
   return (
     <div className="New">
@@ -92,6 +96,14 @@ function EditSong() {
 
         <label htmlFor="is_favorite">Favorite:</label>
         <input id="is_favorite" type="checkbox" onChange={handleCheckboxChange} checked={song.is_favorite} />
+        <br />
+        <br />
+
+        <label className="label" htmlFor="album">
+          Lyrics
+        </label>
+        <br />
+        <textarea type="text" value={song.lyrics} name="lyrics" placeholder="lyrics" onChange={HandleChange} />
         <br />
         <br />
 
