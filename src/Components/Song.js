@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 function Song() {
-  const navigate = useNavigate();
+  const nav = useNavigate();
   const URL = process.env.REACT_APP_BASE_URL;
   const [songs, setSongs] = useState([]);
   const { id } = useParams();
@@ -15,9 +15,9 @@ function Song() {
       })
       .catch((err) => {
         console.log(err);
-        navigate("/");
+        nav("/");
       });
-  }, [URL, id, navigate]);
+  }, [URL, id, nav]);
 
   return (
     <div>
