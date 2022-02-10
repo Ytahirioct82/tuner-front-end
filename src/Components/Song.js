@@ -17,7 +17,7 @@ function Song() {
         console.log(err);
         navigate("/");
       });
-  }, [URL, id, n]);
+  }, [URL, id, navigate]);
 
   return (
     <div>
