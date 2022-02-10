@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+
 function Home() {
   const URL = process.env.REACT_APP_BASE_URL;
 
@@ -32,7 +32,7 @@ function Home() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [URL]);
 
   function HandleDelete(event) {
     axios

@@ -27,7 +27,7 @@ function EditSong() {
       .catch((err) => {
         console.log(err);
       });
-  }, [URL]);
+  }, [URL, id]);
 
   const HandleChange = (event) => {
     console.log(song.lyrics);

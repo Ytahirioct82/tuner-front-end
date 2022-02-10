@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
+
 function Song() {
   const nav = useNavigate();
   const URL = process.env.REACT_APP_BASE_URL;
@@ -17,7 +17,7 @@ function Song() {
         console.log(err);
         nav("/");
       });
-  }, []);
+  }, [URL, id, nav]);
 
   return (
     <div>
