@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 function Home() {
   const URL = process.env.REACT_APP_BASE_URL;
@@ -82,7 +83,11 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className="home">
+      <select onChange={HandleChange}>
+        <option>All Artists</option>
+        {selections}
+      </select>
       <table>
         <thead>
           <tr>
@@ -95,10 +100,6 @@ function Home() {
         </thead>
         <tbody>{result}</tbody>
       </table>
-      <select onChange={HandleChange}>
-        <option>All Artists</option>
-        {selections}
-      </select>
     </div>
   );
 }
